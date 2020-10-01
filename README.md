@@ -1,4 +1,6 @@
+<p align="center">
 <img src="forreadme/react-readme-logo.png" align="center" min-width="400px" max-width="400px" width="400px">
+</p>
 <br>
 
 ### Curso de React

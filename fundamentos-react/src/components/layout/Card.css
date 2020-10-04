@@ -17,8 +17,8 @@
 }
 
 .Card .Content {
-    background: slateblue;
-    color: white;
+    background: white;
+    color: black;
     padding: 20px;
     flex: 1;
 }

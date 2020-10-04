@@ -10,7 +10,7 @@ export default (props) => {
 
     return (
         <div className="Card" style={cardStyle}>
-        <div class="title">{props.titulo}</div>
+        <div className="title">{props.titulo}</div>
             <div className="Content">
                 {props.children}
             </div>

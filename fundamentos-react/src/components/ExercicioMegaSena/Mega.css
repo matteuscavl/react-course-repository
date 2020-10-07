@@ -1,0 +1,11 @@
+.inputMega {
+    width: 20%;
+    margin: 30px;
+}
+
+.inputButtom {
+    border: none;
+    background: steelblue;
+    border-radius: 10px;
+    padding: 10px;
+}

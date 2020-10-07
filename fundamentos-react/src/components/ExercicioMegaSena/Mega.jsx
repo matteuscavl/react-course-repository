@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import './Mega.css'
 
 export default (props) => {
 
@@ -11,7 +12,7 @@ export default (props) => {
     
             for (let j = 0; j < nums.length-1; j++) {
                 if (nums[i] === nums[j]) {
-                    nums.pop();
+                    nums[i] += 2;
                 }
             }
         }
@@ -25,9 +26,17 @@ export default (props) => {
     return (
         <div>
             <h3>Gerador de Numeros da Mega-sena</h3>
-            <h3>{numeros.join(' ')}</h3>
-            <input type="number" value={qtde} onChange={e => setQtde(+e.target.value)}></input>
-            <button onClick={_ => setNumeros(mega(qtde))}> Gerar numero</button>
+            <h3><strong>{numeros.join(' ')}</strong></h3>
+            
+            <input className="inputMega" type="number" 
+            value={qtde} 
+            onChange={e => setQtde(+e.target.value)}>
+            </input>
+            
+            <button className="inputButtom"
+            onClick={_ => setNumeros(mega(qtde))}>
+            Gerar numero
+            </button>
         </div>
     )
 }

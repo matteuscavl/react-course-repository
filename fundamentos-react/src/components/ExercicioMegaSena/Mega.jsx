@@ -13,16 +13,9 @@ export default (props) => {
                 if (nums[i] === nums[j]) {
                     nums.pop();
                 }
-    
-                if (nums[i] < nums[j]) {
-                    let bubble = 0;
-                    bubble = nums[i]
-                    nums[i] = nums[j]
-                    nums[j] = bubble
-                }
             }
         }
-        return nums
+        return nums.sort((n1, n2) => n1-n2)
     }
 
     const [qtde, setQtde] = useState(props.qtde || 6)
@@ -33,8 +26,8 @@ export default (props) => {
         <div>
             <h3>Gerador de Numeros da Mega-sena</h3>
             <h3>{numeros.join(' ')}</h3>
-            <input type="number" value={qtde} onChange={e => setQtde(+e.tartget.value)}></input>
-            <button> Gerar numero</button>
+            <input type="number" value={qtde} onChange={e => setQtde(+e.target.value)}></input>
+            <button onClick={_ => setNumeros(mega(qtde))}> Gerar numero</button>
         </div>
     )
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import './App.css'
 
+import Mega from './components/ExercicioMegaSena/Mega'
 import ContadorFunc from './components/Contador/ContadorFunc'
 import Contador from './components/Contador/Contador'
 import Input from './components/formulario/Input'
@@ -24,6 +25,10 @@ export default _ => (
 
         <div className="Cards">
             
+            <Card titulo="13 - Exercicio Megasena" color="#424242">
+                <Mega></Mega>
+            </Card>
+
             <Card titulo="12.1 - Contador Função" color="#424242">
                 <ContadorFunc valorInicial={10}></ContadorFunc>
             </Card>

@@ -7,7 +7,7 @@ const mega = (total) => {
 
         for (let j = 0; j < nums.length-1; j++) {
             if (nums[i] == nums[j]) {
-                nums.pop();
+                nums[i] + 1;
             }
 
             if (nums[i] < nums[j]) {
@@ -22,4 +22,4 @@ const mega = (total) => {
     return nums
 }
 
-console.log(mega(6))
+console.log(mega(6));

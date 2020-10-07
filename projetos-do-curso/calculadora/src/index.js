@@ -7,7 +7,7 @@ import './Geral.css'
 ReactDOM.render(
   <div>
     <h1>Calculadora</h1>
-    <Calculadora />,
+    <Calculadora />
   </div>,
   document.getElementById('root')
 );

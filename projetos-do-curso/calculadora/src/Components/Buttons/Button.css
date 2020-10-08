@@ -29,6 +29,6 @@
     color: white;
 }
 
-.button-operation:active {
+.button.operation:active {
     background: #fa8231cc;
 }

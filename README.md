@@ -1,12 +1,7 @@
 <p align="center">
     <img src="Curso de NodeJS/Apostilas/NodeJS.png" align="center" min-width="400px" max-width="400px" width="400px">
-</p>
-<br>
 
-<p align="center">
-
-### 📚 Bem vindo ao meu repositório de Cursos 
-
+    ### 📚 Bem vindo ao meu repositório de Cursos 
 </p>
 <br>
 <hr>
@@ -14,7 +9,7 @@
 #### ☕ O que é esse repositório?
 #### Então galera, esse repositório aqui é um lugarzinho aonde eu vou postar todos os cursos que eu estou fazendo de NodeJS.
 
-### Inicialmente esse repositório era para um curso de React, porém descobri que eu sou apaixonado pelo desenvolvimento backend, como também sou apaixonado por Javascript, resolvi direcionar meus estudos para o Backend. 
+#### Inicialmente esse repositório era para um curso de React, porém descobri que eu sou apaixonado pelo desenvolvimento backend, como também sou apaixonado por Javascript, resolvi direcionar meus estudos para o Backend. 
 
 <hr>
 

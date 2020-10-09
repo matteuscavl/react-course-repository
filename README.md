@@ -1,11 +1,12 @@
 <p align="center">
-    <img src="Curso de NodeJS/Apostilas/NodeJS.png" align="center" min-width="400px" max-width="400px" width="400px">
+    <img src="Apostilas/NodeJS.png" align="center" min-width="400px" max-width="400px" width="400px">
 </p>
+
 <p align="center">
 
-    ### 📚 Bem vindo ao meu repositório de Cursos 
-</p>
+### 📚 Bem vindo ao meu repositório de Cursos 
 
+</p>
 <br>
 <hr>
 
@@ -21,4 +22,4 @@
 
 <hr>
 
-#### 👨🏻‍🚀 Aqui você também pode encontrar algo pra te ajudar além dos códigos. Dentro da pasta do curso, você irá se deparar com a pasta "Apostilas" lá dentro você vai encontrar algumas apostilas de Javascript e NodeJS. Todas para você baixar e também aprender sobre Javascript e NodeJS 
+#### 👨🏻‍🚀 Aqui você também pode encontrar algo pra te ajudar além dos códigos. Ddentro da pasta 'Apostilas' você vai encontrar algumas apostilas de Javascript e NodeJS. Todas para você baixar e também aprender sobre Javascript e NodeJS 

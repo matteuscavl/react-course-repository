@@ -1,8 +1,11 @@
 <p align="center">
     <img src="Curso de NodeJS/Apostilas/NodeJS.png" align="center" min-width="400px" max-width="400px" width="400px">
+</p>
+<p align="center">
 
     ### 📚 Bem vindo ao meu repositório de Cursos 
 </p>
+
 <br>
 <hr>
 

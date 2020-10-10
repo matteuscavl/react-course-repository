@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Apostilas/NodeJS.png" align="center" min-width="400px" max-width="400px" width="400px">
+    <img src="Apostilas/nodeJS.png" align="center" min-width="400px" max-width="400px" width="400px">
 </p>
 
 <p align="center">

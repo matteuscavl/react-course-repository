@@ -2,15 +2,16 @@
 
 <hr>
 
-#### 📚 Esse simples projeto consiste em uma plataforma de perguntas e respostas, aonde alguém escreve uma pergunta que ficará em aberta até que alguém responda a pergunta. Todas as informações ficarão salvas em um banco de dados MySQL
+#### 📚 Esse simples projeto consiste em uma plataforma de perguntas e respostas, aonde alguém escreve uma pergunta que ficará em aberta até que alguém responda a pergunta. Todas as informações ficarão salvas em um banco de dados MySQL, utilizando o padrão de projeto MVC.
 
 <hr>
 
 #### 🚀 Techs:
-#### NodeJS 
-#### ExpressJS
-#### MySQL
-#### EJS 
+- NodeJS 
+- ExpressJS
+- MySQL
+- EJS
+- Bootstrap
 
 <hr>
 

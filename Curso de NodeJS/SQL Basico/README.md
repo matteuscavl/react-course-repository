@@ -49,7 +49,7 @@ CREATE TABLE usuarios (
 
 #### Adicionando valores nas tabelas 
 
-> insert into nome-tabelas (campos onde os dados serão inseridos EM ORDEM!) VALUES ();
+> insert into nome-tabelas (campos onde os dados serão inseridos EM ORDEM!) VALUES (valores);
 
 #### Exemplo:
 
@@ -65,17 +65,22 @@ insert into usuarios(nome, email, idade) values(
 
 <hr>
 
-#### Listar os Dados ded uma determinada tabela:
+#### Listar os Dados de uma determinada tabela:
 
 - SELECT * from nome-tabelas
 
 <hr>
 
 #### Fazendo uma consulta Especifica no Banco de Dados:
-#### Exemplo: Listando usuarios apenas com idades maiores que 20: 
 
 - SELECT * from nome-tabela WHERE nome-coluna condicao
+
+#### Exemplo: Listando usuarios apenas com idades maiores que 20: 
+
 - SELECT * from usuarios WHERE idade >= 18
+
+#### Exemplo: Listando usuarios com nome igual a Mateus Lima: 
+
 - SELECT * from usuarios WHERE nome = "Mateus Lima"
 
 <hr>

@@ -10,6 +10,7 @@
 - NodeJS 
 - ExpressJS
 - MySQL
+- Sequelize
 - EJS
 - Bootstrap
 

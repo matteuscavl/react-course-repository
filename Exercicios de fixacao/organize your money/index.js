@@ -23,6 +23,10 @@ app.get('/', (req, res) => {
     res.render('inicio');
 })
 
+app.get('/useApp', (req, res) => {
+    res.render('useApp');
+})
+
 
 // Upando o servidor
 app.listen(port, _ => {

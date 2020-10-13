@@ -8,6 +8,7 @@ const port = 8080;
 const connection = require('./database/database');
 // Importando Model (Tabela)
 const Pergunta = require('./database/Pergunta');
+const Resposta = require('./database/Resposta');
 
 // Database:
 connection
@@ -64,11 +65,31 @@ app.get('/pergunta/:id', (req, res) => {
     }) // Buscar um dado no MySQL com base no parametro passado pra condição
     .then((pergunta) => {
         if (pergunta != undefined) {
-            res.render('pergunta')
+            Resposta.findAll({
+                where: {perguntaId: pergunta.id},
+                order: [
+                    ['id', 'DESC']
+                ]
+            }).then((respostas) => {
+                res.render('pergunta', {
+                    pergunta: pergunta, 
+                    resposta: respostas
+                })
+            });
         } else {
             res.redirect('/')
         }
     })
+})
+
+app.post('/responder', (req, res) => {
+    const corpo = req.body.corpo;
+    const idResposta = req.body.pergunta;
+
+    Resposta.create({
+        corpo: corpo, 
+        perguntaId: idResposta
+    }).then(() => res.redirect(`/pergunta/${idResposta}`))
 })
 
 // Rodando o servidor

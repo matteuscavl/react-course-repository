@@ -9,6 +9,10 @@ const connection = require('./database/database');
 const categoriesController = require('./categories/categoriesController')
 const articleController = require('./articles/articlesController');
 
+// Importando os Models (Tabela)
+const Article = require('./articles/Article');
+const Category = require('./categories/Category');
+
 // Configurando body Parser
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());

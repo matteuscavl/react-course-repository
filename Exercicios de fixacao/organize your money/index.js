@@ -47,6 +47,10 @@ app.post('/resultados', (req, res) => {
 
 })
 
+app.get('/verificar', (req, res) => {
+    
+})
+
 
 // Upando o servidor
 app.listen(port, _ => {

@@ -3,6 +3,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+// Banco de Dados
+const connection = require('./database/database');
+const valores = require('./database/valores')
+
+// Conectando com o Banco de Dados
+connection.authenticate()
+    .then(() => console.log('Conexão com o BD estabelecida'))
+    .catch((err) => console.log('Error: ' + err));
+
 // Iniciando o App
 // Definindo a porta da aplicação
 const app = express();
@@ -25,6 +34,17 @@ app.get('/', (req, res) => {
 
 app.get('/useApp', (req, res) => {
     res.render('useApp');
+})
+
+app.post('/resultados', (req, res) => {
+    const nome = req.body.camponame;
+    const salario = req.body.camposalario;
+
+    valores.create({
+        nome: nome,
+        salario: salario,
+    }).then(_ => console.log('Objeto criado'))
+
 })
 
 

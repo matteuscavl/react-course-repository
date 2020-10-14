@@ -89,14 +89,9 @@
 }
 
 .campo-form {
-    width: 100%;
+    width: 99%;
     margin: 1em;
     padding: 15px;
-}
-
-.label {
-    font-size: 1.1em;
-    margin: 1em;
 }
 
 .btn-new-aba {
@@ -106,4 +101,18 @@
     border: none;
     border-radius: 5px;
     color: white;
+}
+
+.btn-new-investimento {
+    padding: 10px 15px;
+    margin: 1em;
+    background: #11BF49;
+    border: none;
+    border-radius: 5px;
+    color: white;
+}
+
+.div-investimento {
+    text-align: center;
+    padding: 20px;
 }

@@ -4,4 +4,4 @@ const connection = new Sequelize('guiapress', 'root', '031032033', {
     dialect: 'mysql'
 });
 
-module.exports = connection; 
+module.exports = connection;

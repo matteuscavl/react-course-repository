@@ -30,7 +30,7 @@ connection.authenticate()
 app.use('/', categoriesController);
 app.use('/', articleController);
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('admin/categories/new');
 });
 
 // Upando o Servidor

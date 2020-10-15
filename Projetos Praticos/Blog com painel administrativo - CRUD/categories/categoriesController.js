@@ -16,7 +16,7 @@ router.post('/categories/save', (req, res) => {
         Category.create({
             title: title,
             slug: slugify(title),
-        }).then(() => res.redirect('/'))
+        }).then(() => res.redirect('/admin/categories'))
     } else {
         res.redirect('/admin/categories/new');
     }
@@ -25,6 +25,44 @@ router.post('/categories/save', (req, res) => {
 router.get('/admin/categories', (req, res) => {
     Category.findAll().then(categories => {
         res.render('admin/categories/index.ejs', {categories: categories});
+    })
+})
+
+router.post('/categories/delete', (req, res) => {
+    var id = req.body.id; 
+    if (id) { // Id Existe
+        if (!isNaN(id)) { // For numero
+            Category.destroy({
+                where: {
+                    id: id // Comparação do WHER (id === id)
+                }
+            }).then(() => {
+                res.redirect('/admin/categories')
+            })
+        } else {
+            res.redirect('/admin/categories');
+        }
+    } else { // Id Nulo
+        res.redirect('/admin/categories');
+    }
+})
+
+router.get('/admin/categories/edit/:id', (req, res) => {
+    const id = req.params.id;
+
+    if (isNaN(id)) {
+        res.redirect('/admin/categories')
+    }
+
+    Category.findByPk(id)
+    .then(category => {
+        if (category != undefined) {
+            res.render('admin/categories/edit', {category: category});
+        } else {
+            res.redirect('/admin/categories')
+        }
+    }).catch(error => {
+        res.redirect('/admin/categories')
     })
 })
 

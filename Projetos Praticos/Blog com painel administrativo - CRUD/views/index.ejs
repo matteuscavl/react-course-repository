@@ -1,5 +1,27 @@
-<% - include('./Partials/header.ejs') %>
+<%- include('./Partials/header.ejs') %>
+<%- include('./Partials/homenavbar.ejs') %>
 <body>
-    <h1>INDEX</h1>
+    <div class="container">
+        <hr>
+        <div class="jumbotron">
+            <h1 class="display-4">Bem vindo ao GuiaPress</h1>
+            <p class="lead">Este é um simples que desenvolvi enquanto estudava sobre NodeJS</p>
+            <hr class="my-4">
+            <p>Curso: Guia do Programador</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Leia mais</a>
+          </div>
+        <br>
+        <% articles.forEach(articles => { %>
+            <div class="card">
+                <div class="card-header">
+                    <h1><%= articles.title %></h1>
+                </div>
+                <div class="card-body">
+                    <a class="btn btn-success" href="/">Ler artigo</a>
+                </div>
+            </div>
+            <br>
+        <% }) %>
+    </div>
 </body>
-<% - include('./Partials/footer.ejs') %>
+<%- include('./Partials/footer.ejs') %>

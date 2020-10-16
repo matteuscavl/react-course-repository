@@ -6,7 +6,11 @@ const slugify = require('slugify');
 
 // Rotas de Artigos
 router.get('/admin/articles', (req, res) => {
-    res.render('admin/articles/index')
+    Article.findAll({
+        include: [{model: Category}]
+    }).then((articles) => {
+        res.render('admin/articles/index', {articles: articles})
+    })
 })
 
 router.get('/admin/articles/new', (req, res) => {
@@ -28,6 +32,26 @@ router.post('/articles/save', (req, res) => {
     }).then(() => {
         res.redirect('/admin/articles')
     })
+})
+
+router.post('/articles/delete', (req, res) => {
+    let id = req.body.id; 
+
+    if (id) {
+        if (!isNaN(id)) {
+            Article.destroy({
+                where: {
+                    id: id
+                }
+            }).then(() => {
+                res.redirect('/admin/articles')
+            })
+        } else {
+            res.redirect('/admin/articles');
+        }
+    } else {
+        res.redirect('/admin/articles');
+    }
 })
 
 module.exports = router;

@@ -30,8 +30,26 @@ connection.authenticate()
 app.use('/', categoriesController);
 app.use('/', articleController);
 app.get('/', (req, res) => {
-    res.render('admin/categories/new');
+    Article.findAll().then(articles => {
+        res.render('index', {articles: articles})
+    })
 });
+
+app.get('/:slug', (req, res) => {
+    let slug = req.params.slug;
+
+    Article.findOne({
+        where: {
+            slug: slug, 
+        }
+    }).then(article => {
+        if(article) {
+            res.render('article', {article: article});
+        } else {
+            res.redirect('/');
+        }
+    }).catch((error) => console.log('Error' + error))
+})
 
 // Upando o Servidor
 app.listen(port, _ => {

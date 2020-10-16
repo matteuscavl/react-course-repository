@@ -16,7 +16,20 @@
             </tr>
         </thead>
         <tbody>
-
+            <% articles.forEach(articles => { %>
+                <tr>
+                    <td> <%= articles.id %> </td>
+                    <td> <%= articles.title %> </td>
+                    <td> <%= articles.slug %> </td>
+                    <td> <%= articles.category.title %> </td>
+                    <td>
+                        <form method="POST" action="/articles/delete" style="display: inline;" onsubmit="confirmarDelacao(event, this)">
+                            <input type="hidden" name="id" value="<%= articles.id %>">
+                            <button class="btn btn-danger"> Excluir </button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
         </tbody>
     </table>
 </div>
@@ -25,7 +38,7 @@
     // Mecanismo de segurança para apagar as Categorias
     function confirmarDelacao (event, form) {
         event.preventDefault();
-        const decision = confirm("Você quer deletar essa categoria?");
+        const decision = confirm("Você quer deletar esse Artigo?");
 
         if (decision) {
             form.submit();

@@ -34,7 +34,7 @@ router.post('/categories/delete', (req, res) => {
         if (!isNaN(id)) { // For numero
             Category.destroy({
                 where: {
-                    id: id // Comparação do WHER (id === id)
+                    id: id // Comparação do WHERE (id === id)
                 }
             }).then(() => {
                 res.redirect('/admin/categories')
@@ -63,6 +63,19 @@ router.get('/admin/categories/edit/:id', (req, res) => {
         }
     }).catch(error => {
         res.redirect('/admin/categories')
+    })
+})
+
+router.post('/categories/update', (req, res) => {
+    let id = req.body.id;
+    let title = req.body.title;
+    
+    Category.update({title: title, slug: slugify(title)}, {
+        where: {
+            id: id,
+        }
+    }).then(() => {
+        res.redirect('/admin/categories');
     })
 })
 

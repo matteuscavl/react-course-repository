@@ -1,0 +1,50 @@
+<%- include('../../Partials/header.ejs') %>
+<%- include('../../Partials/navbar.ejs') %>
+
+<div class="container">
+    <hr>
+    <div class="card">
+        <div class="card-header">
+            <h2>Editar Artigo: </h2>
+        </div>
+        <hr>
+        <div class="card-body">
+            <form method="POST" action="/articles/update">
+                <input type="hidden" value="<% articles.id %>" name="id">
+                <input class="form-control" type="text" placeholder="Digite o titulo do artigo" name="title">
+                <br><textarea class="form-control" id="article" placeholder="Escreva o artigo aqui:" name="body"></textarea><br>
+                <label>Categorias</label>
+                <select name="category" class="form-control">
+                    <% categories.forEach((category) => { %>
+                        <% if (category.id == articles.categoryId) { %>
+                            <option value="<%= category.id %>" selected><%= category.title %></option>
+                        <% } else { %>
+                            <option value=" <%= category.id %>"> <%= category.title %> </option>
+                        <% } %>
+                    <% }) %>
+                </select>
+                <br>
+                <button class="btn btn-success"> Atualizar </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div id="content" style="display: none">
+    <%- articles.body %>
+</div>
+
+<%- include('../../Partials/footer.ejs') %>
+<script src="/tinymce/tinymce.min.js"></script>
+<!-- CONFIGURANDO O TINY MCE -->
+<script>
+    tinymce.init({
+        selector: '#article',
+        plugins: [
+            'advlist autolink link image lists print preview hr searchreplace wordcount fullscreen insertdatetime media save table paste emoticons'
+        ],
+        init_instance_callback: () => {
+            tinymce.get("article").setContent($('#content').html());
+        }
+    })
+</script>

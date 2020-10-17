@@ -54,4 +54,38 @@ router.post('/articles/delete', (req, res) => {
     }
 })
 
+router.get('/admin/articles/edit/:id', (req, res) => {
+    let id = req.params.id;
+    Article.findByPk(id).then(article => {
+        if (article != undefined) {
+            Category.findAll().then(categories => {
+                res.render('admin/articles/edit', {categories: categories, articles: article});
+            })
+        }else{
+            res.redirect('/');
+        }
+    }).catch(error => res.redirect('/'))
+})
+
+// ESSA ROTA ESTÁ APRESENTANDO UMA FALHA
+// MESMO A RESPOSTA DA PROMISE CAINDO NA THEN, ELE NÃO ESTÁ FAZENDO AS ALTERAÇÕES NO BANCO DE DADOS
+// DESCOBRIR QUAL A RAZÃO...
+router.post("/articles/update", (req, res) => {
+    var id = req.body.id;
+    var title = req.body.title;
+    var body = req.body.body;
+    var category = req.body.category
+
+    Article.update({title: title, body: body, categoryId: category, slug:slugify(title)},{
+        where: {
+            id: id
+        }
+    }).then(() => {
+        res.redirect("/admin/articles");
+    }).catch(err => {
+        res.redirect("/");
+    });
+});
+
+
 module.exports = router;

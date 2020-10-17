@@ -67,9 +67,7 @@ router.get('/admin/articles/edit/:id', (req, res) => {
     }).catch(error => res.redirect('/'))
 })
 
-// ESSA ROTA ESTÁ APRESENTANDO UMA FALHA
-// MESMO A RESPOSTA DA PROMISE CAINDO NA THEN, ELE NÃO ESTÁ FAZENDO AS ALTERAÇÕES NO BANCO DE DADOS
-// DESCOBRIR QUAL A RAZÃO...
+// Bug Corrigido
 router.post("/articles/update", (req, res) => {
     var id = req.body.id;
     var title = req.body.title;
@@ -87,5 +85,43 @@ router.post("/articles/update", (req, res) => {
     });
 });
 
+// Sistema de Paginação
+router.get('/articles/page/:num', (req, res) => {
+    let page = req.params.num;
+    let offset = 0;
+
+    if (isNaN(page) || page == 1) {
+        offset = 0;
+    } else {
+        offset = parseInt(page) * 2;
+    }
+
+    Article.findAndCountAll({
+        limit: 2,
+        offset: offset,
+        order: [
+            ['id', 'DESC'] // Ultima atualização - Qualquer falha foi aqui.
+        ],
+    }).then(articles => {
+        let next;
+
+        if (offset + 2 >= articles.count) {
+            next = false;
+        } else {
+            next = true;
+        }
+        
+        
+        let result = {
+            page: parseInt(page),
+            next: next,
+            articles: articles,
+        }
+
+        Category.findAll().then(categories => {
+            res.render('admin/articles/page', {result: result, categories: categories})
+        })
+    })
+})
 
 module.exports = router;

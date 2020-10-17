@@ -10,7 +10,7 @@
         <hr>
         <div class="card-body">
             <form method="POST" action="/articles/update">
-                <input type="hidden" value="<% articles.id %>" name="id">
+                <input type="hidden" value="<%= articles.id %>" name="id">
                 <input class="form-control" type="text" placeholder="Digite o titulo do artigo" name="title">
                 <br><textarea class="form-control" id="article" placeholder="Escreva o artigo aqui:" name="body"></textarea><br>
                 <label>Categorias</label>

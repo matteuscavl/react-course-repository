@@ -2,16 +2,29 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const session = require('express-session');
 const port = 8080;
 const connection = require('./database/database');
 
 // Importando Rotas que estão em arquivos Externos
 const categoriesController = require('./categories/categoriesController')
 const articleController = require('./articles/articlesController');
+const userController = require('./user/userController');
 
 // Importando os Models (Tabela)
 const Article = require('./articles/Article');
 const Category = require('./categories/Category');
+const User = require('./user/User');
+
+// Configurando as sessões + cookies
+// Sessions 
+// Redis (Banco de Dados focado em Cache e Sessões)
+app.use(session({
+    secret: 'iniciandonosestudosbackend',
+    cookie: {
+        maxAge: 30000000
+    }
+}))
 
 // Configurando body Parser
 app.use(bodyParser.urlencoded({extended: false}));
@@ -29,6 +42,8 @@ connection.authenticate()
 // Rotas
 app.use('/', categoriesController);
 app.use('/', articleController);
+app.use('/', userController);
+
 app.get('/', (req, res) => {
     Article.findAll({
         order: [

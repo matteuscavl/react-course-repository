@@ -15,6 +15,6 @@ const Category = connection.define('categories', {
 });
 
 // Sincronizando os Relacionamentos e as Tabelas
-// Category.sync({force: true}); // Essa linha deve ser comentada logo após a primeira execução do código
+Category.sync({force: true}); // Essa linha deve ser comentada logo após a primeira execução do código
 
 module.exports = Category;

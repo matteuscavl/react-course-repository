@@ -25,6 +25,6 @@ Category.hasMany(Article) // hasMany = Tem muitos (Relacionamento 1pN) || Minha 
 Article.belongsTo(Category) // BeLongsTo = Pertence A  (Relacionamento 1p1) || Meu Artigo Pertence a Categoria 
 
 // Sincronizando os Relacionamentos e as Tabelas
-// Article.sync({force: true});
+Article.sync({force: true});
 
 module.exports = Article;

@@ -4,7 +4,7 @@ const { Process } = require('./Processor');
 var Table = require('./Table')
 const htmlParser = require('./htmlparser');
 const Writer = require('./Writer');
-
+const PDFWriter = require('./PdfWriter')
 
 const leitor = new Reader();
 const escritor = new Writer();
@@ -17,6 +17,7 @@ async function main () {
     const html = await htmlParser.Parse(usuarios);
 
     escritor.Write(Date.now() + '.html', html)
+    PDFWriter.writePDF(Date.now() + '.pdf', html);
 }
 
 main();

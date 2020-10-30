@@ -1,4 +1,10 @@
 const Reader = require('./Reader');
 
 const leitor = new Reader();
-leitor.read('./excel.csv');
+
+async function main () {
+    const dados = await leitor.read('./excel.csv');
+    console.log(dados);
+}
+
+main();
